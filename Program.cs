@@ -22,6 +22,12 @@ namespace StringExercises
       var splitInput = Array.ConvertAll(input.Split("-"), int.Parse);
       Array.Sort(splitInput);
 
+      var isConsecutiveStr = isConsecutive(splitInput);
+      Console.WriteLine(isConsecutiveStr);
+    }
+
+    public static string isConsecutive(int[] splitInput)
+    {
       var consecutiveFlag = true;
       for (var i = 0; i < splitInput.Length - 1; i++)
       {
@@ -30,9 +36,9 @@ namespace StringExercises
           consecutiveFlag = false;
         }
       }
-      var isConsecutiveStr = consecutiveFlag ? "Consecutive" : "Not Consecutive";
-      Console.WriteLine(isConsecutiveStr);
+      return consecutiveFlag ? "Consecutive" : "Not Consecutive";
     }
+
 
 
     // /*
@@ -48,22 +54,28 @@ namespace StringExercises
 
     //   if (!String.IsNullOrWhiteSpace(input))
     //   {
-    //     Console.WriteLine("Checking to see if any duplicates...");
-    //     var unique = new List<string>();
-    //     foreach (string number in input.Split("-"))
-    //     {
-    //       if (unique.Contains(number))
-    //       {
-    //         Console.WriteLine("Duplicate Found");
-    //         break;
-    //       }
-    //       else
-    //       {
-    //         unique.Add(number);
-    //       }
-    //     }
+    //     Console.WriteLine(checkDuplicates(input));
     //   }
     // }
+
+    // public static string checkDuplicates(string input)
+    // {
+    //   Console.WriteLine("Checking to see if any duplicates...");
+    //   var unique = new List<string>();
+    //   foreach (string number in input.Split("-"))
+    //   {
+    //     if (unique.Contains(number))
+    //     {
+    //       return "Duplicate Found";
+    //     }
+    //     else
+    //     {
+    //       unique.Add(number);
+    //     }
+    //   }
+    //   return "None Found";
+    // }
+
 
 
     // /*
@@ -78,18 +90,23 @@ namespace StringExercises
     //   var input = Console.ReadLine();
     //   if (!String.IsNullOrWhiteSpace(input))
     //   {
-    //     try
-    //     {
-    //       var dateTime = DateTime.Parse(input);
-    //       Console.WriteLine(dateTime.ToString("HH:mm"));
-    //       Console.WriteLine("Ok");
-    //     }
-    //     catch
-    //     {
-    //       Console.WriteLine("Invalid");
-    //     }
+    //     Console.WriteLine(isValidTime(input));
     //   }
     // }
+
+    // public static string isValidTime(string input)
+    // {
+    //   try
+    //   {
+    //     var dateTime = DateTime.Parse(input);
+    //     return "Ok";
+    //   }
+    //   catch
+    //   {
+    //     return "Invalid";
+    //   }
+    // }
+
 
 
     // /*
@@ -105,14 +122,20 @@ namespace StringExercises
     //   var input = Console.ReadLine();
     //   if (!String.IsNullOrWhiteSpace(input))
     //   {
-    //     var TitleCase = new StringBuilder();
-    //     foreach (var word in input.Split(" "))
-    //     {
-    //       TitleCase.Append(Char.ToUpper(word[0]) + word.ToLower().Substring(1));
-    //     }
-    //     Console.WriteLine($"Variable name is: {TitleCase}");
+    //     Console.WriteLine(createVariableName(input));
     //   }
     // }
+
+    // public static string createVariableName(string input)
+    // {
+    //   var TitleCase = new StringBuilder();
+    //   foreach (var word in input.Split(" "))
+    //   {
+    //     TitleCase.Append(Char.ToUpper(word[0]) + word.ToLower().Substring(1));
+    //   }
+    //   return $"Variable name is: {TitleCase}";
+    // }
+
 
 
     // /*
@@ -123,17 +146,22 @@ namespace StringExercises
     // static void Main(string[] args)
     // {
     //   Console.Write("Please enter an English word: ");
-    //   var input = Console.ReadLine().ToLower();
+    //   var input = Console.ReadLine();
+    //   Console.WriteLine(countVowels(input));
+    // }
+
+    // public static string countVowels(string input)
+    // {
     //   var vowels = new List<char>() { 'a', 'e', 'i', 'o', 'u' };
     //   var count = 0;
-    //   foreach (var character in input)
+    //   foreach (var character in input.ToLower())
     //   {
     //     if (vowels.Contains(character))
     //     {
     //       count++;
     //     }
     //   }
-    //   Console.WriteLine($"There are {count} vowels in that word.");
+    //   return $"There are {count} vowels in that word.";
     // }
   }
 }
